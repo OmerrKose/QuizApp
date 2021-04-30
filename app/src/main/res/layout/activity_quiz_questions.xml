@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:text="Which country does this flag belong to?"
+            android:text="@string/questionText"
             android:textColor="#363A43"
             android:textSize="22sp" />
 
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:contentDescription="image"
+            android:contentDescription="@string/image"
             android:src="@drawable/ic_flag_of_argentina" />
 
         <LinearLayout
@@ -72,7 +72,7 @@
             android:layout_margin="10dp"
             android:background="@drawable/default_option_border_bg"
             android:padding="15dp"
-            android:text="Apple"
+            android:text=""
             android:textColor="#7A8089"
             android:textSize="18sp" />
 
@@ -84,7 +84,7 @@
             android:layout_margin="10dp"
             android:background="@drawable/default_option_border_bg"
             android:padding="15dp"
-            android:text="Apple"
+            android:text=""
             android:textColor="#7A8089"
             android:textSize="18sp" />
 
@@ -96,7 +96,7 @@
             android:layout_margin="10dp"
             android:background="@drawable/default_option_border_bg"
             android:padding="15dp"
-            android:text="Apple"
+            android:text=""
             android:textColor="#7A8089"
             android:textSize="18sp" />
 
@@ -108,7 +108,7 @@
             android:layout_margin="10dp"
             android:background="@drawable/default_option_border_bg"
             android:padding="15dp"
-            android:text="Apple"
+            android:text=""
             android:textColor="#7A8089"
             android:textSize="18sp" />
 
@@ -119,7 +119,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@color/colorPrimary"
-            android:text="SUBMIT"
+            android:text="@string/submitButtonText"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />

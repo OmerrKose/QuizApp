@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">QuizApp</string>
+    <string name="submitButtonText">Submit</string>
+    <string name="image">image</string>
+    <string name="questionText">Which country does this flag belong to?</string>
+    <string name="welcome">Welcome</string>
+    <string name="requestText">Please enter your name.</string>
+    <string name="name">Name</string>
+    <string name="startButtonText">Start</string>
 </resources>
