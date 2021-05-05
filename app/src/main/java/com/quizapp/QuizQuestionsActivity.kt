@@ -1,5 +1,6 @@
 package com.quizapp
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -16,11 +17,14 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     private var myCurrentPosition: Int = 1
     private var myQuestionsList: ArrayList<Questions>? = null
     private var mySelectedOptionPosition: Int = 0
+    private var myCorrectAnswers: Int = 0
+    private var myUsername: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_questions)
 
+        myUsername = intent.getStringExtra(Constants.USER_NAME)
         myQuestionsList = Constants.getQuestions()
 
         setQuestion()
@@ -56,11 +60,12 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                             setQuestion()
                         }
                         else -> {
-                            Toast.makeText(
-                                this,
-                                "You have successfully completed the quiz!",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            val intent = Intent(this, ResultActivity::class.java)
+                            intent.putExtra(Constants.USER_NAME, myUsername)
+                            intent.putExtra(Constants.CORRECT_ANSWERS, myCorrectAnswers)
+                            intent.putExtra(Constants.TOTAL_QUESTIONS, myQuestionsList!!.size)
+                            startActivity(intent)
+                            finish()
                         }
                     }
                 }
@@ -69,15 +74,17 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                     val question = myQuestionsList?.get(myCurrentPosition - 1)
 
                     // If selected answer is wrong change the view to red
-                    if(question!!.correctAnswer != mySelectedOptionPosition) {
+                    if (question!!.correctAnswer != mySelectedOptionPosition) {
                         answerView(mySelectedOptionPosition, R.drawable.wrong_option_border_bg)
+                    } else {
+                        myCorrectAnswers++
                     }
 
                     // No matter what display the correct answer
                     answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
 
                     // Check if it is the last question to change the submit button text accordingly
-                    if(myCurrentPosition == myQuestionsList!!.size) {
+                    if (myCurrentPosition == myQuestionsList!!.size) {
                         buttonSubmit.text = getString(R.string.finishButtonText)
                     } else {
                         buttonSubmit.text = getString(R.string.nextQuestionButtonText)
@@ -98,7 +105,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         defaultOptionsView()
 
         // Check if the quiz is over or not
-        if(myCurrentPosition == myQuestionsList!!.size) {
+        if (myCurrentPosition == myQuestionsList!!.size) {
             buttonSubmit.text = getString(R.string.finishButtonText)
         } else {
             buttonSubmit.text = getString(R.string.submitButtonText)

@@ -9,7 +9,10 @@
     <string name="nextQuestionButtonText">Next Question</string>
     <string name="requestText">Please enter your name</string>
     <string name="questionText">Which country does this flag belong to?</string>
-
+    <string name="result">Result</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="username">Username</string>
+    <string name="yourScoreIs">Your score is:</string>
 
 
 </resources>
